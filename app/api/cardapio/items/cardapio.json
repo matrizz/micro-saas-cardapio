@@ -1,0 +1,321 @@
+[
+    {
+        "sectionName": "Praião Sucos",
+        "items": [
+            {
+                "name": "Suco Natural de Polpa com Água",
+                "description": "Sabores disponíveis: Abacaxi, Acerola, Açaí, Caju, Graviola, Goiaba, Manga, Maracujá, Morango.",
+                "originalPrice": 12,
+                "discount": 0,
+                "currentPrice": 12
+            },
+            {
+                "name": "Suco Natural de Polpa com Leite",
+                "description": "Sabores disponíveis: Abacaxi, Acerola, Açaí, Caju, Graviola, Goiaba, Manga, Maracujá, Morango.",
+                "originalPrice": 15,
+                "discount": 0,
+                "currentPrice": 15
+            },
+            {
+                "name": "Suco Natural de Laranja/Limão",
+                "description": "Suco preparado com frutas frescas.",
+                "originalPrice": 15,
+                "discount": 0,
+                "currentPrice": 15
+            }
+        ]
+    },
+    {
+        "sectionName": "Praião Cervejas 600ml",
+        "items": [
+            {
+                "name": "Petra/Império/Antarctica",
+                "description": "",
+                "originalPrice": 12,
+                "discount": 0,
+                "currentPrice": 12
+            },
+            {
+                "name": "Brahma/Skol/Amstel",
+                "description": "",
+                "originalPrice": 14,
+                "discount": 0,
+                "currentPrice": 14
+            },
+            {
+                "name": "Eisenbahn/Império Larger",
+                "description": "",
+                "originalPrice": 14,
+                "discount": 0,
+                "currentPrice": 14
+            },
+            {
+                "name": "Original/Stella/Budweiser/Spaten/Serra Malte",
+                "description": "",
+                "originalPrice": 17,
+                "discount": 0,
+                "currentPrice": 17
+            },
+            {
+                "name": "Heineken",
+                "description": "",
+                "originalPrice": 20,
+                "discount": 0,
+                "currentPrice": 20
+            }
+        ]
+    },
+    {
+        "sectionName": "Praião Bebidas",
+        "items": [
+            {
+                "name": "Cerveja Lata/Refri Lata",
+                "description": "",
+                "originalPrice": 8,
+                "discount": 0,
+                "currentPrice": 8
+            },
+            {
+                "name": "Heineken ou Corona Longneck",
+                "description": "",
+                "originalPrice": 14,
+                "discount": 0,
+                "currentPrice": 14
+            },
+            {
+                "name": "H2O!/Gatorade",
+                "description": "",
+                "originalPrice": 8,
+                "discount": 0,
+                "currentPrice": 8
+            },
+            {
+                "name": "Água Mineral",
+                "description": "",
+                "originalPrice": 5,
+                "discount": 0,
+                "currentPrice": 5
+            },
+            {
+                "name": "Água com Gás",
+                "description": "",
+                "originalPrice": 6,
+                "discount": 0,
+                "currentPrice": 6
+            },
+            {
+                "name": "Água Tônica/Citrus (Lata)",
+                "description": "",
+                "originalPrice": 8,
+                "discount": 0,
+                "currentPrice": 8
+            },
+            {
+                "name": "Cerveja sem Álcool Brahma",
+                "description": "",
+                "originalPrice": 14,
+                "discount": 0,
+                "currentPrice": 14
+            },
+            {
+                "name": "Cerveja sem Álcool Heineken",
+                "description": "",
+                "originalPrice": 14,
+                "discount": 0,
+                "currentPrice": 14
+            },
+            {
+                "name": "Malzbier Long Neck",
+                "description": "",
+                "originalPrice": 14,
+                "discount": 0,
+                "currentPrice": 14
+            },
+            {
+                "name": "Energético Red Bull",
+                "description": "",
+                "originalPrice": 18,
+                "discount": 0,
+                "currentPrice": 18
+            },
+            {
+                "name": "Smirnoff Ice/Beats",
+                "description": "",
+                "originalPrice": 18,
+                "discount": 0,
+                "currentPrice": 18
+            }
+        ]
+    },
+    {
+        "sectionName": "Praião Drinks",
+        "items": [
+            {
+                "name": "Caipirinha de Saquê/Bacardi",
+                "description": "",
+                "originalPrice": 30,
+                "discount": 0,
+                "currentPrice": 30
+            },
+            {
+                "name": "Caipirinha de Vodka/Steinhaeger",
+                "description": "",
+                "originalPrice": 30,
+                "discount": 0,
+                "currentPrice": 30
+            },
+            {
+                "name": "Caipirinha de Pinga",
+                "description": "",
+                "originalPrice": 20,
+                "discount": 0,
+                "currentPrice": 20
+            },
+            {
+                "name": "Caipira",
+                "description": "",
+                "originalPrice": 30,
+                "discount": 0,
+                "currentPrice": 30
+            },
+            {
+                "name": "Batida de Pinga",
+                "description": "",
+                "originalPrice": 23,
+                "discount": 0,
+                "currentPrice": 23
+            },
+            {
+                "name": "Batida de Vodka/Saquê",
+                "description": "",
+                "originalPrice": 25,
+                "discount": 0,
+                "currentPrice": 25
+            },
+            {
+                "name": "Batida Espanhola/Portuguesa",
+                "description": "",
+                "originalPrice": 25,
+                "discount": 0,
+                "currentPrice": 25
+            }
+        ]
+    },
+    {
+        "sectionName": "Praião Doses",
+        "items": [
+            {
+                "name": "Campari/Vodka/Steinhaeger/Gin",
+                "description": "",
+                "originalPrice": 10,
+                "discount": 0,
+                "currentPrice": 10
+            },
+            {
+                "name": "Bacardi",
+                "description": "",
+                "originalPrice": 8,
+                "discount": 0,
+                "currentPrice": 8
+            },
+            {
+                "name": "Salinas/Sagatiba/Santo Grau",
+                "description": "",
+                "originalPrice": 10,
+                "discount": 0,
+                "currentPrice": 10
+            },
+            {
+                "name": "Martini ou Dreher",
+                "description": "",
+                "originalPrice": 7,
+                "discount": 0,
+                "currentPrice": 7
+            },
+            {
+                "name": "Dreher c/ Mel e Limão",
+                "description": "",
+                "originalPrice": 10,
+                "discount": 0,
+                "currentPrice": 10
+            },
+            {
+                "name": "Domecq c/ Mel e Limão",
+                "description": "",
+                "originalPrice": 10,
+                "discount": 0,
+                "currentPrice": 10
+            },
+            {
+                "name": "Domecq ou Maria Mole",
+                "description": "",
+                "originalPrice": 9,
+                "discount": 0,
+                "currentPrice": 9
+            },
+            {
+                "name": "Cynar/Cinzano/Rabo de Galo",
+                "description": "",
+                "originalPrice": 8,
+                "discount": 0,
+                "currentPrice": 8
+            },
+            {
+                "name": "Selecta/Ypióca/São Francisco",
+                "description": "",
+                "originalPrice": 8,
+                "discount": 0,
+                "currentPrice": 8
+            },
+            {
+                "name": "Copo de Vinho",
+                "description": "",
+                "originalPrice": 10,
+                "discount": 0,
+                "currentPrice": 10
+            },
+            {
+                "name": "Old Eight",
+                "description": "",
+                "originalPrice": 12,
+                "discount": 0,
+                "currentPrice": 12
+            },
+            {
+                "name": "Whisky Passport",
+                "description": "",
+                "originalPrice": 15,
+                "discount": 0,
+                "currentPrice": 15
+            },
+            {
+                "name": "Whisky 8 Anos",
+                "description": "",
+                "originalPrice": 20,
+                "discount": 0,
+                "currentPrice": 20
+            },
+            {
+                "name": "Whisky 12 Anos",
+                "description": "",
+                "originalPrice": 30,
+                "discount": 0,
+                "currentPrice": 30
+            },
+            {
+                "name": "Absolut ou Tequila",
+                "description": "",
+                "originalPrice": 30,
+                "discount": 0,
+                "currentPrice": 30
+            },
+            {
+                "name": "Whisky Jack Daniels ou Honey",
+                "description": "",
+                "originalPrice": 30,
+                "discount": 0,
+                "currentPrice": 30
+            }
+        ]
+    }
+]
