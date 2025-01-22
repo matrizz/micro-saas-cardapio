@@ -1,4 +1,5 @@
-import { HTMLAttributes, useRef, useState } from "react"
+'use client'
+import { HTMLAttributes, useEffect, useRef, useState } from "react"
 
 interface TableHeaderProps extends HTMLAttributes<HTMLDivElement> {
     headerTitles: string[]
@@ -8,7 +9,6 @@ interface TableHeaderProps extends HTMLAttributes<HTMLDivElement> {
 export default function TableHeader({ headerTitles, resize, ...props }: TableHeaderProps) {
 
     const [colWidths, setColWidths] = useState([400, 500, 1047, 500, 500, /*200*/]);
-
     const headersRef = useRef<(HTMLTableCellElement | null)[]>([]);
 
     const handleMouseDown = (index: number, e: React.MouseEvent) => {
@@ -23,6 +23,8 @@ export default function TableHeader({ headerTitles, resize, ...props }: TableHea
             newColWidths[index] = newWidth;
             setColWidths(newColWidths);
         };
+
+
 
         const onMouseUp = () => {
             document.removeEventListener('mousemove', onMouseMove);
@@ -41,7 +43,7 @@ export default function TableHeader({ headerTitles, resize, ...props }: TableHea
                 {headerTitles.map((title, i) => {
                     if (i === 0) return (
                         // @ts-expect-error
-                        <th ref={(el) => (headersRef.current[0] = el)} style={{ width: `${colWidths[0]}px` }} className="py-3 px-3 text-left text-md resizeable resize pl-3 outline-none rounded-tl-lg">
+                        <th key={crypto.randomUUID()} ref={(el) => (headersRef.current[0] = el)} style={{ width: `${colWidths[0]}px` }} className="py-3 px-3 text-left text-md resizeable resize pl-3 outline-none rounded-tl-lg">
                             <div className="relative flex ">
 
                                 {title}
@@ -54,14 +56,14 @@ export default function TableHeader({ headerTitles, resize, ...props }: TableHea
                     )
 
                     if (i === headerTitles.length - 1) return (
-                        <th className="py-3 px-6 rounded-tr-lg text-left">Actions</th>
+                        <th key={crypto.randomUUID()} className="py-3 px-6 rounded-tr-lg text-left">Actions</th>
                     )
 
 
                     return (
 
                         // @ts-expect-error
-                        <th ref={(el) => (headersRef.current[i] = el)} style={{ width: `${colWidths[i]}px` }} className="py-3 px-3 text-left text-md resizeable resize pl-3 outline-none" key={title}>
+                        <th ref={(el) => (headersRef.current[i] = el)} style={{ width: `${colWidths[i]}px` }} className="py-3 px-3 text-left text-md resizeable resize pl-3 outline-none" key={crypto.randomUUID()}>
                             <div className="flex relative">
 
                                 {title}

@@ -1,13 +1,30 @@
 import { NextResponse } from 'next/server'
 import { NextApiRequest, NextApiResponse } from "next"
 import { prisma } from '@/lib/prisma'
+import { URLSearchParams } from 'url'
 
 
 export async function DELETE(req: NextApiRequest, res: NextApiResponse) {
 
-    await prisma.menu.delete({
+    const params = new URLSearchParams(req.url).values().toArray()
+
+    const response = await prisma.menu.findFirst({
         where: {
-            sectionName: req.query.id as string
+            sectionName: params[0] as string
+        }
+    })
+
+    const items = response?.items as []
+    //@ts-expect-error
+    const new_items = items.filter(item => item.name != params[1])
+
+    console.log(new_items)
+    await prisma.menu.update({
+        where: {
+            sectionName: params[0] as string
+        },
+        data: {
+            items: new_items
         }
     })
 

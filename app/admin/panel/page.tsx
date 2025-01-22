@@ -20,7 +20,66 @@ export default function Panel() {
 
     }, [])
 
-   
+
+    function getItemData() {
+        const obj = {} as any
+        obj.name = prompt('Nome do item:')
+        obj.discount = prompt('Desconto:')
+        obj.description = prompt('Descrição:')
+        obj.currentPrice = prompt('Preço atual:')
+        obj.originalPrice = prompt('Preço Original')
+        return obj
+    }
+
+    async function handleAddItem(sectName: string) {
+
+        const objData = {
+            sectionName: sectName,
+            data: getItemData()
+        }
+        const res = await fetch('/api/cardapio/items/create', {
+            method: 'POST',
+            body: JSON.stringify(objData)
+        })
+
+        if (res.ok) {
+            window.location.reload()
+        }
+    }
+
+    function getSectionData() {
+        return prompt('Nome da sessão:')
+    }
+
+    async function handleAddSection() {
+        const res = await fetch('/api/cardapio/section/create', {
+            method: 'POST',
+            body: JSON.stringify({ sectionName: getSectionData() })
+        })
+
+        if (res.ok) {
+            window.location.reload()
+        }
+    }
+
+
+    function continueToDelete() {
+        return confirm('Você deseja apagar está sessão?')
+    }
+
+    async function handleDeleteSection(name: string) {
+
+        if (!continueToDelete()) return
+
+        const res = await fetch(`/api/cardapio/section/delete?n=${name}`, {
+            method: 'DELETE'
+        })
+
+        if (res.ok) {
+            window.location.reload()
+        }
+
+    }
 
     return (
         <div className="flex-1 p-6 text-black">
@@ -29,7 +88,7 @@ export default function Panel() {
                 <h1 className="text-2xl font-bold">
                     Manage Items
                 </h1>
-                <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                <button onClick={handleAddSection} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
                     <i className="fas fa-plus mr-2">
                     </i>
                     New Section
@@ -45,8 +104,13 @@ export default function Panel() {
                         })
                         return (
                             <Table.section className="flex-1 p-6 flex-col-reverse" sectionName={sectionName} key={sectionName}>
-                                <div className="flex flex-row-reverse w-full items-end mb-6">
-                                    <button className="bg-slate-300 text-white px-4 py-2 rounded hover:bg-blue-600">
+                                <div className="flex justify-between flex-row-reverse w-full items-end mb-6">
+                                    <button onClick={() => handleDeleteSection(sectionName)} className="transition-colors  ease-in-out text-white px-4 py-2 rounded bg-red-400 hover:bg-red-600 ">
+                                        <i className="fas fa-minus mr-2">
+                                        </i>
+                                        Delete Section
+                                    </button>
+                                    <button onClick={() => handleAddItem(sectionName)} className="transition-colors ease-in-out bg-blue-400 text-white px-4 py-2 rounded hover:bg-blue-600">
                                         <i className="fas fa-plus mr-2">
                                         </i>
                                         Add New Item
@@ -66,7 +130,7 @@ export default function Panel() {
                                                 })
                                                 console.log(keys)
 
-                                                return <Table.row rowContent={values} key={item.name} />
+                                                return <Table.row sectionName={sectionName} rowContent={values} key={item.name} />
                                             })
                                         }
                                     </Table.body>
