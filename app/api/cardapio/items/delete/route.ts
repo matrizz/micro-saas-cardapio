@@ -1,10 +1,9 @@
-import { NextResponse } from 'next/server'
-import { NextApiRequest, NextApiResponse } from "next"
+import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { URLSearchParams } from 'url'
 
 
-export async function DELETE(req: NextApiRequest, res: NextApiResponse) {
+export async function DELETE(req: NextRequest) {
 
     const params = new URLSearchParams(req.url).values().toArray()
 

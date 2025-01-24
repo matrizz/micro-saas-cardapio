@@ -1,10 +1,9 @@
-import { NextResponse } from 'next/server'
-import { NextApiRequest, NextApiResponse } from "next"
+import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import cardapio from '../cardapio.json'
 
 
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(req: NextRequest) {
 
     cardapio.map(async ({sectionName, items}) => {
         await prisma.menu.create({

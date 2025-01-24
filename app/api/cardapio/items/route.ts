@@ -1,10 +1,8 @@
-import { NextResponse } from 'next/server'
-import cardapio from './cardapio.json'
-import { NextApiRequest, NextApiResponse } from "next"
+import { NextResponse, NextRequest } from 'next/server'
 import { prisma } from '@/lib/prisma'
 
 
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(req: NextRequest) {
 
     const data = await prisma.menu.findMany()
     console.log(data)

@@ -2,20 +2,20 @@ import { NextRequest, NextResponse } from 'next/server'
 import { NextApiRequest, NextApiResponse } from "next"
 import { prisma } from '@/lib/prisma'
 
-export async function POST(req: NextRequest, res: NextApiResponse) {
+export async function POST(req: NextRequest) {
 
     try {
         const { sectionName, data } = await req.json()
         
-        const res = await prisma.menu.findFirst({
+        const response = await prisma.menu.findFirst({
             where: {
                 sectionName
             }
         })       
 
-        const items = res?.items as []
-        //@ts-expect-error
-        items.push(data)
+        const items = Array.isArray(response?.items) ? [...response.items] : [];
+        items.push(data);
+
         await prisma.menu.update({
             where: {
                 sectionName
