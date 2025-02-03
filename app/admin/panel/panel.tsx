@@ -1,8 +1,8 @@
 'use client'
 
 import Table from "@/app/components/AdminPanelTable/Table"
-import { CardapioSection, CardapioSectionItem } from "@/types"
-import { useState, useEffect, useRef } from "react"
+import { CardapioSection } from "@/@types"
+import { useState, useEffect } from "react"
 
 export default function Panel() {
 
@@ -11,7 +11,11 @@ export default function Panel() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('/api/cardapio/items')
+            const response = await fetch('/api/cardapio/items', {
+                headers: {
+                    'x-internal-key': `${process.env.INTERNAL_KEY}`
+                }
+            })
             const res = await response.json()
             setData(res)
             setOrder(Object.keys(res[0].items[0]))
@@ -99,9 +103,7 @@ export default function Panel() {
                 {
                     data.map(({ sectionName, items }, index) => {
 
-                        items.map((item, i) => {
-                            console.log("test", Object.keys(items[0]))
-                        })
+
                         return (
                             <Table.section className="flex-1 p-6 flex-col-reverse" sectionName={sectionName} key={sectionName}>
                                 <div className="flex justify-between flex-row-reverse w-full items-end mb-6">
@@ -126,9 +128,7 @@ export default function Panel() {
                                                 keys.forEach((key) => {
                                                     // @ts-expect-error
                                                     values.push(item[key])
-                                                    console.log('etste', values)
                                                 })
-                                                console.log(keys)
 
                                                 return <Table.row sectionName={sectionName} rowContent={values} key={item.name} />
                                             })

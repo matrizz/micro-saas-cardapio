@@ -1,27 +1,29 @@
 'use client'
 
-import { useEffect, useState } from "react";
 import Header from "./components/Header/Header";
 import Section from "./components/Section/Section";
 import Card from "./components/Card/Card";
-import { CardapioSection } from "@/types";
-
-
-
+import { CardapioSection } from "@/@types";
+import { useEffect, useState } from "react";
+import { EnvironmentVarsSchema, LoadRelativeEnvVars } from "@/lib/utils";
 
 export default function Home() {
 
-  const [data, setData] = useState<CardapioSection[]>([]) 
+  const [data, setData] = useState<CardapioSection[]>([])
+  const [loadEnv, setLoadEnv] = useState<EnvironmentVarsSchema>()
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('/api/cardapio/items')
-      const res = await response.json()
-      setData(res)
+    async function fetchData() {
+      return (await fetch('/api/cardapio/items', {
+        method: 'GET',
+        headers: {
+          'x-internal-key': `${process.env.INTERNAL_KEY}`
+        }
+      })).json()
     }
 
-    fetchData()
-
+    setLoadEnv(LoadRelativeEnvVars())
+    fetchData().then(data => setData(data || []))
   }, [])
 
   return (
@@ -29,13 +31,15 @@ export default function Home() {
       <Header.root>
         <Header.image className="object-cover h-[12rem] w-full" src="./banner.png" />
         <Header.title>
-          Cardápio Online
+          {loadEnv?._App_Header_Title_}
         </Header.title>
-        <Header.subtitle subTitle="Explore nossos pratos deliciosos" />
+        <Header.subtitle>
+          {loadEnv?._App_Header_Subtitle_}
+        </Header.subtitle>
       </Header.root>
 
       {
-        data.map((section) => {
+        Array.isArray(data) && data.map((section) => {
           return (
             <div key={section.sectionName} className="mx-auto p-4">
               <Section.title title={section.sectionName} />

@@ -5,7 +5,6 @@ interface CardImageProps extends ImgHTMLAttributes<HTMLImageElement> {
 }
 
 export const CardImage: FC<CardImageProps> = ({ src, ...props}) => {
-    console.log({...props})
     return (
         <img src={src} {...props} />
     )

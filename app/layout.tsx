@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { LoadRelativeEnvVars } from "@/lib/utils";
+
+const loadEnv = LoadRelativeEnvVars()
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cardápio Online",
-  description: "Cardápio Online",
+  title: loadEnv._App_Tile_,
+  description: loadEnv._App_Description_,
 };
 
 export default function RootLayout({

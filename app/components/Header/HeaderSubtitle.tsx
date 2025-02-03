@@ -1,13 +1,13 @@
-import { FC } from "react"
+import { FC, ReactNode } from "react"
 
-interface HeaderSubTitleProps {
-    subTitle: string
-}
+type HeaderSubTitleProps =
+    | { subtitle: string; children?: never }
+    | { children: ReactNode | string; subtitle?: never }
 
-export const HeaderSubtitle: FC<HeaderSubTitleProps> = ({ subTitle }) => {
+export function HeaderSubtitle({ subtitle, children }: HeaderSubTitleProps) {
     return (
-        <p className="text-gray-600">
-            {subTitle}
+        <p className="text-gray-600 dark:text-white/80">
+            {children? children: subtitle}
         </p>
     )
 }

@@ -6,7 +6,7 @@ interface SectionTitleProps extends HTMLAttributes<HTMLElement> {
 
 export function SectionTitle({ title, ...props }: SectionTitleProps) {
     return (
-        <h2 className="text-lg mb-2" {...props}>
+        <h2 className="text-2xl font-bold mb-2" {...props}>
             {title}
         </h2>
     )

@@ -17,7 +17,6 @@ export async function DELETE(req: NextRequest) {
     //@ts-expect-error
     const new_items = items.filter(item => item.name != params[1])
 
-    console.log(new_items)
     await prisma.menu.update({
         where: {
             sectionName: params[0] as string
